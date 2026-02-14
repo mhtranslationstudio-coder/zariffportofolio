@@ -39,7 +39,6 @@ export default function CertificateLibrary() {
 
     const triggers: ScrollTrigger[] = [];
 
-    // Heading animation
     const headingTrigger = ScrollTrigger.create({
       trigger: section,
       start: 'top 80%',
@@ -54,7 +53,6 @@ export default function CertificateLibrary() {
     });
     triggers.push(headingTrigger);
 
-    // Grid items animation
     const gridTrigger = ScrollTrigger.create({
       trigger: grid,
       start: 'top 85%',
@@ -81,7 +79,6 @@ export default function CertificateLibrary() {
     };
   }, []);
 
-  // Animate grid items when filter changes
   useEffect(() => {
     const grid = gridRef.current;
     if (!grid) return;
@@ -160,11 +157,11 @@ export default function CertificateLibrary() {
                 }}
               >
                 {/* Certificate Image */}
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden bg-cream">
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 
@@ -192,7 +189,8 @@ export default function CertificateLibrary() {
         {/* Certificate Count */}
         <div className="text-center mt-12">
           <p className="font-body text-sm text-dark/60">
-            {t.certificates.showing} {filteredCertificates.length} {t.certificates.of} {certificates.length} {t.certificates.certificates}
+            {t.certificates.showing} {filteredCertificates.length} {t.certificates.of}{' '}
+            {certificates.length} {t.certificates.certificates}
           </p>
         </div>
       </div>
@@ -200,11 +198,11 @@ export default function CertificateLibrary() {
       {/* Modal */}
       {isModalOpen && selectedCert && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-dark/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
           onClick={closeModal}
         >
           <div
-            className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto animate-slide-up"
+            className="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden animate-slide-up"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -217,11 +215,11 @@ export default function CertificateLibrary() {
 
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Certificate Image */}
-              <div className="aspect-[4/3] md:aspect-auto">
+              <div className="aspect-[4/3] md:aspect-auto md:h-[80vh] bg-cream">
                 <img
                   src={selectedCert.image}
                   alt={selectedCert.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
 
@@ -237,13 +235,15 @@ export default function CertificateLibrary() {
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-dark/70">
+                  <div className="flex items-center gap-3 text-sage-dark/80">
                     <Award className="w-5 h-5 text-sage" />
                     <span className="font-body text-sm">{selectedCert.institution}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-dark/70">
+                  <div className="flex items-center gap-3 text-sage-dark/80">
                     <Calendar className="w-5 h-5 text-sage" />
-                    <span className="font-body text-sm">{t.certificates.completed} {selectedCert.date}</span>
+                    <span className="font-body text-sm">
+                      {t.certificates.completed} {selectedCert.date}
+                    </span>
                   </div>
                 </div>
 
@@ -252,13 +252,15 @@ export default function CertificateLibrary() {
                     <BookOpen className="w-5 h-5 text-sage" />
                     {t.certificates.description}
                   </h4>
-                  <p className="font-body text-sm text-dark/70 leading-relaxed">
+                  <p className="font-body text-sm text-sage-dark/80 leading-relaxed">
                     {selectedCert.description}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-heading text-lg text-sage-dark mb-3">{t.certificates.skills}</h4>
+                  <h4 className="font-heading text-lg text-sage-dark mb-3">
+                    {t.certificates.skills}
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedCert.skills.map((skill, index) => (
                       <span
