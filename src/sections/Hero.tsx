@@ -192,9 +192,9 @@ export default function Hero() {
         >
           Zariff Torres
         </h1>
- <p
+<p
   ref={subtitleRef}
-  className="font-body text-lg sm:text-xl md:text-2xl text-sage-dark font-semibold tracking-widest uppercase mb-6"
+  className="font-body text-lg sm:text-xl md:text-2xl text-neutral-950 font-semibold tracking-widest uppercase mb-6"
 >
   {t.hero.title}
 </p>
@@ -206,12 +206,7 @@ export default function Hero() {
           "{t.hero.tagline}"
         </p>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-sage rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-sage rounded-full animate-pulse" />
-          </div>
-        </div>
+
       </div>
     </section>
   );
