@@ -201,7 +201,7 @@ export default function Hero() {
 
         <p
           ref={taglineRef}
-          className="font-heading text-xl sm:text-2xl md:text-3xl text-dark/80 italic max-w-2xl mx-auto"
+          className="font-heading text-xl sm:text-2xl md:text-3xl text-neutral-950 italic max-w-2xl mx-auto"
         >
           "{t.hero.tagline}"
         </p>
