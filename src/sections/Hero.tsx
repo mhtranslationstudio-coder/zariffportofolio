@@ -192,12 +192,13 @@ export default function Hero() {
         >
           Zariff Torres
         </h1>
-        <p
-          ref={subtitleRef}
-          className="font-body text-lg sm:text-xl md:text-2xl text-sage font-medium tracking-widest uppercase mb-6"
-        >
-          {t.hero.title}
-        </p>
+      <p
+  ref={subtitleRef}
+  className="font-body text-lg sm:text-xl md:text-2xl text-sage-dark font-semibold tracking-widest uppercase mb-6 inline-block bg-cream/70 px-4 py-2 rounded"
+>
+  {t.hero.title}
+</p>
+
         <p
           ref={taglineRef}
           className="font-heading text-xl sm:text-2xl md:text-3xl text-dark/80 italic max-w-2xl mx-auto"
